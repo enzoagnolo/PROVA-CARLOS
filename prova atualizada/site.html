@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aplicativo para Arquitetos e Engenheiros</title>
+<link rel="stylesheet" href="/style.css">
+
+</head>
+<body>
+    <h2>SKETCH-PRO</h2>
+    <div class="input-container">
+        <label for="bloco"><b>Tipo de Bloco:</b></label>
+        <select id="bloco">
+            <option value="telhado"><b>Telhado</b></option>
+            <option value="parede"><b>Parede</b></option>
+            <option value="porta"><b>Porta</b></option>
+            <option value="janela"><b>Janela</b></option>
+        </b>
+        </select>
+        <input type="file" id="inputImagem" accept="image/*"> 
+        <button id="btnDesenharBloco" onclick="desenharBloco()">Desenhar Bloco</button>
+        <button onclick="voltarPaginaInicial()">Voltar para Página Inicial</button> 
+        <button onclick="adicionarProjeto()">Adicionar Projeto</button>
+        <button onclick="alternarTelaCheia()">Inspecionar projeto</button>
+        <button onclick="limparTela()">Limpar Tela</button>
+    </div>
+    <div id="canvas"></div>
+
+    <div class="legendas">
+        <p><b>Parede - R$ 440,00</b></p>
+        <p><b>Telhado - R$ 310,00</b></p>
+        <p><b>Porta - R$ 430,00</b></p>
+        <p><b>Janela - R$ 180,00</b></p>
+    </div>
+
+    <div id="orcamento">
+        <h3>Orçamento</h3>
+        <p id="subtotal"><b>Subtotal: R$ 0,00</b></p>
+    </div>
+
+    <script src="java.js"></script>
+</body>
+</html>
