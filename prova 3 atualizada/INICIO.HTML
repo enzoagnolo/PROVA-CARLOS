@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tela de Início</title>
+<link rel="stylesheet" href="/site.html">
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #6c9ebb;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-image: url('https://static.vecteezy.com/ti/fotos-gratis/p1/1965151-fundo-de-textura-de-madeira-clara-gratis-foto.jpg');
+    background-size: cover; /* Adaptando o background para fullscreen */
+    background-position: center; /* Centralizando o background */
+}
+
+.container {
+    text-align: center;
+    position: relative;
+}
+
+.circle {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-color: #ffffff;
+    overflow: hidden;
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -120%);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.circle img {
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 50%;
+    display: block;
+    margin: auto;
+}
+
+.button {
+    background-color: #B8926B;
+    color: #ffffff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    position: relative;
+    z-index: 1;
+    text-decoration: none;
+    outline: none;
+}
+
+.button:hover {
+    background-color: #D4C7BE; 
+}
+
+.welcome-text {
+    text-align: center;
+    font-size: 16px; 
+    margin-top: 20px; 
+    color: #ffffff; 
+    font-family: 'Roboto', Arial, sans-serif; 
+}
+
+</style>
+</head>
+<body>
+
+<div class="container">
+  <div class="circle">
+    <img src="https://tse1.mm.bing.net/th/id/OIG2.Ydbwyph0MlVQflJnl_yz?pid=ImgGn" alt="Logo">
+  </div>
+
+  <button class="button"><a href="/site.html" class="dropbtn" style="color: inherit; text-decoration: none;"><b>Venha nos conhecer!</b></a></button>
+  
+
+  <p class="welcome-text"><h3>Seja bem vindo ao SKETCH-PRO, clique no botão e crie seus projetos já! Esperamos que goste, bem vindo ao sketch-pro</h3></p>
+</div>
+
+</body>
+</html>
