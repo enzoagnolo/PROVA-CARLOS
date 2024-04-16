@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tela de Início</title>
+<style>
+  body {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #6c9ebb;
+    font-family: Arial, sans-serif; /* Define a fonte */
+  }
+  
+  .container {
+    text-align: center; /* Centraliza os elementos */
+    position: relative; /* Permite posicionar absolutamente a imagem */
+  }
+  
+  .circle {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background-color: #ffffff; /* Cor de fundo do círculo */
+    overflow: hidden;
+    position: absolute; /* Permite posicionar absolutamente a imagem */
+    top: 30%; /* Move o círculo 30% para cima */
+    left: 50%; /* Coloca o lado esquerdo do círculo na metade da tela */
+    transform: translate(-50%, -120%); /* Centraliza o círculo */
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2); /* Adiciona sombra ao círculo */
+  }
+
+  .circle img {
+    max-width: 100%;
+    max-height: 100%;
+    border-radius: 50%;
+    display: block; /* Garante que a imagem seja centralizada verticalmente */
+    margin: auto; /* Centraliza a imagem horizontalmente */
+  }
+
+  .button {
+    background-color: #1865f3; /* Cor de fundo do botão */
+    color: #ffffff; /* Cor do texto do botão */
+    padding: 10px 20px; /* Espaçamento interno do botão */
+    border: none;
+    border-radius: 5px; /* Bordas arredondadas */
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    position: relative; /* Permite posicionar relativamente o botão */
+    z-index: 1; /* Garante que o botão esteja na frente da imagem */
+    text-decoration: none; /* Remove sublinhado do link */
+    outline: none; /* Remove a borda de foco do botão */
+  }
+
+  .button:hover {
+    background-color: #14397c; /* Cor de fundo ao passar o mouse */
+  }
+
+  .welcome-text {
+    text-align: center;
+    font-size: 16px; /* Aumenta o tamanho do texto */
+    margin-top: 20px; /* Espaçamento superior */
+    color: #333; /* Cor do texto */
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+  <div class="circle">
+    <img src="https://tse4.mm.bing.net/th/id/OIG4.H_hWjkjTBRNqrNPG4Ms1?pid=ImgGn" alt="Logo">
+  </div>
+
+  <button class="button"><a href="projeto.html" class="dropbtn" style="color: inherit; text-decoration: none;"><b>Venha nos conhecer!</b></a></button>
+  
+
+  <p class="welcome-text"><h3>Seja bem vindo ao SKETCH-PRO, clique no botão e crie seus projetos já! Esperamos que goste, bem vindo ao sketch-pro</h3></p>
+</div>
+
+</body>
+</html>

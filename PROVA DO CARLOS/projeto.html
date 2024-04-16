@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Aplicativo para Arquitetos e Engenheiros</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #6c9ebb;
+    }
+    h2 {
+        text-align: center;
+        margin-top: 20px;
+        color: #000000;
+    }
+    #canvas {
+        border: 3px solid #000000;
+        max-width: 100%;
+        height: 70vh;
+        margin: 20px auto;
+        background-image:linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url(https://static.vecteezy.com/ti/vetor-gratis/p3/20321574-azul-grafico-papel-rede-fundo-desatado-padronizar-matematica-papel-textura-desigh-para-arquiteto-plano-escola-projeto-ilustracao-vetor.jpg);
+        position: relative;
+        overflow: auto;
+    }
+    .input-container {
+        margin-bottom: 20px;
+        text-align: center;
+        display: flex;
+        justify-content: space-between; /* Espaço igual entre os botões */
+    }
+    label {
+        display: block;
+        margin-bottom: 10px;
+        font-size: 18px;
+    }
+    select, button {
+        padding: 5px 25px;
+        font-size: 18px;
+        margin-top: 5px;
+        border-radius: 20px; /* Adiciona bordas arredondadas */
+    }
+    button {
+        background-color: #ffffff;
+        color: #000000;
+        border: none;
+        cursor: pointer;
+        transition: background-color 0.3s;
+        margin: 0 90px; /* Aproxima mais os botões */
+    }
+    button:hover {
+        background-color: #2b69dd;
+    }
+    .espaco {
+        position: absolute;
+        border: 1px solid #000000;
+        cursor: move; /* Permite o movimento das formas */
+    }
+    .legendas {
+        margin-top: 20px;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        font-size: 16px;
+    }
+    .legendas p {
+        margin: 0 20px; /* Espaçamento entre as legendas */
+    }
+    #orcamento {
+        margin-top: 20px;
+        padding: 10px;
+        border: 3px solid #000000;
+        text-align: center;
+        font-size: 18px;
+    }
+</style>
+</head>
+<body>
+    <h2>SKETCH-PRO</h2>
+    <div class="input-container">
+        <label for="bloco">Tipo de Bloco:</label>
+        <select id="bloco">
+            <option value="telhado">Telhado</option>
+            <option value="parede">Parede</option>
+            <option value="porta">Porta</option>
+            <option value="janela">Janela</option>
+        </select>
+        <input type="file" id="inputImagem" accept="image/*"> <!-- Novo input para selecionar imagem -->
+        <button id="btnDesenharBloco" onclick="desenharBloco()">Desenhar Bloco</button>
+        <button onclick="voltarPaginaInicial()">Voltar para Página Inicial</button> <!-- Botão para voltar para a página inicial -->
+        <button onclick="adicionarProjeto()">Adicionar Projeto</button>
+        <button onclick="alternarTelaCheia()">Inspecionar projeto</button>
+        <button onclick="limparTela()">Limpar Tela</button>
+    </div>
+    <div id="canvas"></div>
+
+    <div class="legendas">
+        <p><b>Parede - R$ 50,00</b></p>
+        <p><b>Telhado - R$ 54,00</b></p>
+        <p><b>Porta - R$ 430,00</b></p>
+        <p><b>Janela - R$ 580,00</b></p>
+    </div>
+
+    <div id="orcamento">
+        <h3>Orçamento</h3>
+        <p id="subtotal"><b>Subtotal: R$ 0,00</b></p>
+    </div>
+
+    <script>
+        const escala = 10; // 1 cm = 10 pixels
+        let subtotal = 0;
+
+        function desenharBloco() {
+            const canvas = document.getElementById('canvas');
+            const blocoSelecionado = document.getElementById('bloco').value;
+            let alturaPixels, larguraPixels, preco;
+
+            // Define as dimensões do bloco de acordo com o tipo selecionado
+            switch(blocoSelecionado) {
+                case 'telhado':
+                    alturaPixels = 150;
+                    larguraPixels = 300;
+                    preco = 54;
+                    break;
+                case 'parede':
+                    alturaPixels = 100;
+                    larguraPixels = 200;
+                    preco = 50;
+                    break;
+                case 'porta':
+                    alturaPixels = 200;
+                    larguraPixels = 80;
+                    preco = 430;
+                    break;
+                case 'janela':
+                    alturaPixels = 60;
+                    larguraPixels = 100;
+                    preco = 580;
+                    break;             
+                default:
+                    alturaPixels = 100;
+                    larguraPixels = 100;
+                    preco = 0;
+            }
+
+            // Cria um novo elemento div para representar o bloco
+            const novoBloco = document.createElement('div');
+            novoBloco.textContent = blocoSelecionado; // Define o tipo de bloco como texto
+            novoBloco.className = 'espaco';
+            novoBloco.style.left = Math.random() * (canvas.offsetWidth - larguraPixels) + 'px';
+            novoBloco.style.top = Math.random() * (canvas.offsetHeight - alturaPixels) + 'px';
+            novoBloco.style.width = larguraPixels + 'px';
+            novoBloco.style.height = alturaPixels + 'px';
+
+            // Define a cor do bloco de acordo com o tipo selecionado
+            switch(blocoSelecionado) {
+                case 'telhado':
+                    novoBloco.style.backgroundImage = 'url(https://system.soprojetos.com.br/featured_images/97/post/como-fazer-boa-execucao-de-telhado-ceramico.jpg?1475242474)';
+                    novoBloco.style.backgroundSize = 'cover'; // Redimensiona a imagem para cobrir completamente o bloco
+                    break;
+                case 'parede':
+                    novoBloco.style.backgroundImage = 'url(https://img.freepik.com/fotos-premium/gesso-artistico-em-uma-parede-cinza-e-branca_420054-1545.jpg)';
+                    novoBloco.style.backgroundSize = 'cover'; // Redimensiona a imagem para cobrir completamente o bloco
+                    break;
+                case 'porta':
+                    novoBloco.style.backgroundColor = '#8B4513'; // Marrom
+                    break;
+                case 'janela':
+                    novoBloco.style.backgroundColor = '#87CEEB'; // Azul claro
+                    break;
+                default:
+                    novoBloco.style.backgroundColor = '#ccc'; // Cinza claro
+            }
+
+            // Adiciona o novo bloco ao canvas
+            canvas.appendChild(novoBloco);
+
+            // Atualiza o subtotal do orçamento
+            subtotal += preco;
+            document.getElementById('subtotal').textContent = 'Subtotal: R$ ' + subtotal.toFixed(2);
+
+            // Adiciona event listener para mover o novo bloco
+            novoBloco.addEventListener('mousedown', function(event) {
+                let diferencaX = event.clientX - novoBloco.getBoundingClientRect().left;
+                let diferencaY = event.clientY - novoBloco.getBoundingClientRect().top;
+
+                function moverBloco(event) {
+                    let novoX = event.clientX - diferencaX;
+                    let novoY = event.clientY - diferencaY;
+
+                    // Verifica se o bloco está dentro do quadro
+                    if (novoX >= 0 && novoX + novoBloco.offsetWidth <= canvas.offsetWidth &&
+                        novoY >= 0 && novoY + novoBloco.offsetHeight <= canvas.offsetHeight) {
+                        novoBloco.style.left = novoX + 'px';
+                        novoBloco.style.top = novoY + 'px';
+                    }
+                }
+
+                function pararMoverBloco() {
+                    document.removeEventListener('mousemove', moverBloco);
+                    document.removeEventListener('mouseup', pararMoverBloco);
+                }
+
+                document.addEventListener('mousemove', moverBloco);
+                document.addEventListener('mouseup', pararMoverBloco);
+            });
+        }
+
+        function alternarTelaCheia() {
+            const canvas = document.getElementById('canvas');
+            if (!document.fullscreenElement) {
+                canvas.requestFullscreen().catch(err => {
+                    alert(`Erro ao tentar entrar em tela cheia: ${err.message}`);
+                });
+            } else {
+                document.exitFullscreen();
+            }
+        }
+
+        function limparTela() {
+            const canvas = document.getElementById('canvas');
+            canvas.innerHTML = ''; // Remove todos os elementos filhos do canvas
+            subtotal = 0; // Reseta o subtotal
+            document.getElementById('subtotal').textContent = 'Subtotal: R$ ' + subtotal.toFixed(2);
+        }
+
+        function voltarPaginaInicial() {
+            window.location.href = "INICIO.HTML";
+        }
+
+        function adicionarProjeto() {
+            // Seleciona o elemento de input de arquivo
+            const inputImagem = document.getElementById('inputImagem');
+            
+            // Adiciona um evento 'change' ao input de arquivo para detectar quando um arquivo é selecionado
+            inputImagem.addEventListener('change', function(event) {
+                const arquivo = event.target.files[0]; // Obtém o arquivo selecionado
+    
+                // Verifica se um arquivo foi selecionado
+                if (arquivo) {
+                    const leitor = new FileReader(); // Cria um novo leitor de arquivo
+    
+                    // Adiciona um evento 'load' ao leitor para detectar quando o arquivo foi lido
+                    leitor.addEventListener('load', function() {
+                        const imagem = new Image(); // Cria um novo elemento de imagem
+                        imagem.src = leitor.result; // Define a fonte da imagem como o resultado da leitura do arquivo
+    
+                        // Adiciona um evento 'load' à imagem para detectar quando ela foi carregada
+                        imagem.addEventListener('load', function() {
+                            // Adiciona a imagem ao canvas
+                            const canvas = document.getElementById('canvas');
+                            canvas.appendChild(imagem);
+
+                            // Centraliza a imagem no canvas
+                            const offsetX = (canvas.offsetWidth - imagem.width) / 2;
+                            const offsetY = (canvas.offsetHeight - imagem.height) / 2;
+                            imagem.style.left = offsetX + 'px';
+                            imagem.style.top = offsetY + 'px';
+    
+                            // Atualiza o subtotal do orçamento
+                            subtotal += 100; // Substitua este valor pelo preço que você deseja atribuir a cada imagem adicionada
+                            document.getElementById('subtotal').textContent = 'Subtotal: R$ ' + subtotal.toFixed(2);
+
+                            // Adiciona event listener para mover a imagem
+                            imagem.addEventListener('mousedown', function(event) {
+                                let diferencaX = event.clientX - imagem.getBoundingClientRect().left;
+                                let diferencaY = event.clientY - imagem.getBoundingClientRect().top;
+
+                                function moverImagem(event) {
+                                    let novoX = event.clientX - diferencaX;
+                                    let novoY = event.clientY - diferencaY;
+
+                                    // Verifica se a imagem está dentro do quadro
+                                    if (novoX >= 0 && novoX + imagem.width <= canvas.offsetWidth &&
+                                        novoY >= 0 && novoY + imagem.height <= canvas.offsetHeight) {
+                                        imagem.style.left = novoX + 'px';
+                                        imagem.style.top = novoY + 'px';
+                                    }
+                                }
+
+                                function pararMoverImagem() {
+                                    document.removeEventListener('mousemove', moverImagem);
+                                    document.removeEventListener('mouseup', pararMoverImagem);
+                                }
+
+                                document.addEventListener('mousemove', moverImagem);
+                                document.addEventListener('mouseup', pararMoverImagem);
+                            });
+                        });
+    
+                        // Se ocorrer um erro ao carregar a imagem
+                        imagem.addEventListener('error', function() {
+                            alert('Erro ao carregar a imagem.');
+                        });
+                    });
+    
+                    // Lê o arquivo como uma URL de dados
+                    leitor.readAsDataURL(arquivo);
+                }
+            });
+    
+            // Simula um clique no input de arquivo para abrir a janela de seleção de arquivo
+            inputImagem.click();
+        }
+    </script>
+</body>
+</html>
