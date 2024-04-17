@@ -1,0 +1,108 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #D4C7BE;
+}
+
+h2 {
+    text-align: center;
+    margin-top: 40px;
+    color: #B8926B;
+    font-size: 4rem;
+    text-transform: uppercase;
+}
+
+#canvas {
+    border: 7px solid #B8926B;
+    max-width: 90%;
+    height: 70vh;
+    margin: 40px auto;
+    background-image: url('https://img.freepik.com/fotos-premium/um-fundo-branco-com-um-fundo-branco-que-diz-nao_662214-11283.jpg');
+    background-blend-mode: overlay;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    overflow: hidden;
+    border-radius: 50px;
+    box-shadow: 0 7PX 15PX black;
+}
+
+.input-container {
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+label {
+    display: block;
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+    color: #2D2D2B;
+}
+
+select, button, input[type="file"] {
+    padding: 15px 30px;
+    font-size: 1.6rem;
+    margin-top: 20px;
+    border-radius: 40px;
+    border: none;
+    background-color: #B8926B;
+    color: #2D2D2B;
+    transition: all 0.3s;
+    outline: none;
+    box-shadow: 0 3PX 5PX black;
+}
+
+select:hover, button:hover, input[type="file"]:hover {
+    background-color: #e4a980;
+}
+
+.espaco {
+    position: absolute;
+    border: 2px solid #B8926B;
+    cursor: move;
+}
+
+.legendas {
+    margin-top: 40px;
+    text-align: center;
+    font-size: 1.6rem;
+    color: #2D2D2B;
+    display: flex;
+    justify-content: center;
+}
+
+.legendas p {
+    margin: 0 20px;
+}
+
+#orcamento {
+    margin-top: 40px;
+    padding: 20px;
+    border: 7px solid #B8926B;
+    text-align: center;
+    font-size: 2rem;
+    color: #2D2D2B;
+    background-image: url('https://static.vecteezy.com/ti/fotos-gratis/p1/1965151-fundo-de-textura-de-madeira-clara-gratis-foto.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+#sketch-pro {
+    text-align: center;
+    font-size: 3rem;
+    color: #2D2D2B;
+    background-image: url('https://static.vecteezy.com/ti/fotos-gratis/p1/1965151-fundo-de-textura-de-madeira-clara-gratis-foto.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 20px;
+    margin-top: 20px;
+    border: 7px solid #B8926B;
+    border-radius: 50px;
+    box-shadow: 0 7PX 15PX black;
+}
+
+#inputImagem{
+    display: none;
+}
+
