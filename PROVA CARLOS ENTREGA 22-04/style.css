@@ -1,0 +1,111 @@
+body {
+    font-family: 'Roboto', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #e0d9d9;
+    background-image: url('https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/ad443d18-b212-465d-b140-88cf700a248a/d94baao-49bcc175-46bd-4796-8d3f-3d22aaa70e12.gif?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2FkNDQzZDE4LWIyMTItNDY1ZC1iMTQwLTg4Y2Y3MDBhMjQ4YVwvZDk0YmFhby00OWJjYzE3NS00NmJkLTQ3OTYtOGQzZi0zZDIyYWFhNzBlMTIuZ2lmIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.q5Ol0mA8pQTsDjfqC1wB5n-XOIQsAeF6g2Uhu228E5k');
+    background-size: cover; /* Adaptando o background pgiara fullscreen */
+    background-position: center; /* Centralizando o background */
+}
+
+h2 {
+    text-align: center;
+    margin-top: 40px;
+    color: #ac9014;
+    font-size: 4rem;
+    text-transform: uppercase;
+}
+
+#canvas {
+    border: 7px solid #ac9014;
+    max-width: 90%;
+    height: 70vh;
+    margin: 40px auto;
+    background-image: url('https://img.freepik.com/fotos-premium/um-fundo-branco-com-um-fundo-branco-que-diz-nao_662214-11283.jpg');
+    background-blend-mode: overlay;
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    overflow: hidden;
+    border-radius: 50px;
+    box-shadow: 0 7PX 15PX black;
+}
+
+.input-container {
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+label {
+    display: block;
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+    color: #2D2D2B;
+}
+
+select, button, input[type="file"] {
+    padding: 15px 30px;
+    font-size: 1.6rem;
+    margin-top: 20px;
+    border-radius: 40px;
+    border: none;
+    background-color: #ffd208;
+    color: #2D2D2B;
+    transition: all 0.3s;
+    outline: none;
+    box-shadow: 0 3PX 5PX black;
+}
+
+select:hover, button:hover, input[type="file"]:hover {
+    background-color: #ac9014;
+}
+
+.espaco {
+    position: absolute;
+    border: 2px solid #ac9014;
+    cursor: move;
+}
+
+.legendas {
+    margin-top: 40px;
+    text-align: center;
+    font-size: 1.6rem;
+    color: #ffd208;
+    display: flex;
+    justify-content: center;
+}
+
+.legendas p {
+    margin: 0 20px;
+}
+
+#orcamento {
+    margin-top: 40px;
+    padding: 20px;
+    border: 7px solid #ffd208;
+    text-align: center;
+    font-size: 2rem;
+    color: #2D2D2B;
+    background-image: url('/img/fita.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+#sketch-pro {
+    text-align: center;
+    font-size: 3rem;
+    color: #2D2D2B;
+    background-image: url('/img/fita.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 20px;
+    margin-top: 20px;
+    border: 7px solid #ffd208;
+    border-radius: 50px;
+    box-shadow: 0 7PX 15PX black;
+}
+
+#inputImagem{
+    display: none;
+}
+
